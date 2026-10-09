@@ -4,14 +4,76 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101827">
-  <title>Marketplace | Administração</title>
+  <title>Delivale | Marketplace Control Center</title>
   <style>
     :root{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#172033;background:#f5f7fb;--accent:#3559e0;--accent-soft:#e9edff;--line:#e6eaf1;--muted:#778196}
     *{box-sizing:border-box}body{margin:0}button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.5;cursor:not-allowed}
     .app{min-height:100vh;display:grid;grid-template-columns:252px 1fr}.sidebar{background:#111a2e;color:#f8faff;padding:27px 17px;display:flex;flex-direction:column;gap:32px}.brand{display:flex;align-items:center;gap:13px;padding:0 11px}.brand-icon{width:45px;height:45px;border-radius:13px;background:#fff;display:grid;place-items:center;overflow:hidden;font-size:23px;color:var(--accent);font-weight:800}.brand-icon img{width:100%;height:100%;object-fit:contain}.brand-title{font-size:16px;font-weight:800;overflow-wrap:anywhere}.brand-sub{font-size:11px;color:#a7b3c9;margin-top:3px}.nav-label{font-size:11px;color:#8795af;letter-spacing:1.3px;font-weight:700;padding:0 14px;margin-bottom:12px}.nav{display:grid;gap:6px}.nav button{width:100%;border:0;background:transparent;color:#aebbd1;text-align:left;border-radius:10px;padding:13px 14px;display:flex;gap:13px;align-items:center;font-size:14px}.nav button.active,.nav button:hover{background:#26365b;color:#fff}.nav-icon{font-size:19px;width:22px;text-align:center}.side-bottom{margin-top:auto;font-size:12px;color:#8897af;padding:13px;line-height:1.6;border-top:1px solid #29364e}
     .main{min-width:0}.top{min-height:88px;background:white;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:20px 37px;gap:12px}.eyebrow{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.5px}.top h1{font-size:23px;margin:4px 0 0}.account{display:flex;align-items:center;gap:11px;color:var(--muted);font-size:12px}.avatar{width:38px;height:38px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-size:15px;font-weight:800;display:grid;place-items:center}.content{max-width:1180px;padding:33px 37px;margin:0 auto}.intro h2{font-size:23px;margin:0 0 9px}.intro p{margin:0;color:var(--muted);line-height:1.6;font-size:14px}.cards{margin-top:26px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.card,.panel{background:#fff;border:1px solid var(--line);border-radius:15px;box-shadow:0 3px 15px rgba(28,40,70,.025)}.card{padding:23px}.card-icon{font-size:24px}.card-label{font-size:13px;color:var(--muted);margin:16px 0 9px}.card-value{font-size:25px;font-weight:800}.card-note{font-size:12px;color:#8790a2;margin-top:8px}.panel{padding:26px;margin-top:21px}.panel h3{margin:0 0 9px;font-size:17px}.panel p{color:var(--muted);font-size:13px;line-height:1.7}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:19px}.setting-title{font-size:15px;font-weight:800;margin-bottom:6px}.logo-zone{display:flex;gap:23px;align-items:center;flex-wrap:wrap;margin:20px 0}.logo-preview{width:145px;height:112px;background:#f7f9fc;border:1px dashed #cbd5e1;border-radius:13px;display:grid;place-items:center;overflow:hidden;color:#8e9ab1}.logo-preview img{width:100%;height:100%;object-fit:contain;padding:8px}.button-row{display:flex;flex-wrap:wrap;gap:9px}.btn{border-radius:9px;padding:11px 15px;font-weight:700;font-size:13px;border:1px solid var(--line);background:#fff;color:#34405a}.btn.primary{border-color:var(--accent);background:var(--accent);color:white}.btn.danger{color:#b83847}.btn:hover:not(:disabled){filter:brightness(.96)}.field{display:grid;gap:8px;margin:18px 0}.field label{font-size:13px;font-weight:700}.field input{border:1px solid #d8deea;border-radius:9px;padding:13px;outline:none;width:100%;color:#1d2a40}.field input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}.tip{font-size:12px!important;color:#8894a6!important}.status{min-height:18px;font-size:13px;font-weight:600;margin-top:14px}.status.ok{color:#15803d}.status.error{color:#b91c1c}.empty{display:grid;place-items:center;text-align:center;min-height:170px;background:#fafbfe;border:1px dashed #dce3ee;border-radius:12px;margin-top:19px;padding:25px;color:#778196}.empty strong{color:#384359}.hidden{display:none!important}.notice{padding:13px 16px;border-radius:10px;background:#fff8e7;border:1px solid #f4e3b3;color:#8b671a;font-size:12px;line-height:1.6;margin-top:20px}.color-input{height:44px!important;padding:4px!important;width:80px!important}
     @media(max-width:900px){.app{grid-template-columns:76px 1fr}.sidebar{padding:22px 10px}.brand{justify-content:center;padding:0}.brand-title,.brand-sub,.nav-label,.nav-text,.side-bottom{display:none}.nav button{justify-content:center;padding:13px}.nav-icon{width:auto}.top{padding:18px 21px}.content{padding:24px 20px}.cards{grid-template-columns:1fr}.grid-2{grid-template-columns:1fr}}@media(max-width:500px){.app{grid-template-columns:60px 1fr}.sidebar{padding:15px 5px}.brand-icon{width:38px;height:38px}.top h1{font-size:18px}.account span{display:none}.content{padding:18px 13px}.panel{padding:17px}.logo-zone{gap:12px}.top{padding:15px 13px}.intro h2{font-size:20px}}
-  </style>
+  
+/* Delivale Premium UI v2 */
+:root{--accent:#6557ed;--accent-soft:#f0edff;--line:#e8eaf2;--muted:#79849a}
+body{background:#f5f6fb;color:#252b43}
+.app{grid-template-columns:267px minmax(0,1fr)}
+.sidebar{background:linear-gradient(165deg,#15172b 0%,#1d2140 65%,#18192d 100%);padding:28px 17px;gap:35px;box-shadow:8px 0 35px #11142a0c}
+.brand-icon{border-radius:15px;background:linear-gradient(135deg,#9382ff,#5042e9);color:white;box-shadow:0 9px 19px #7665ed40}
+.brand-title{letter-spacing:-.4px}.brand-sub{font-size:11px}
+.nav button{border-radius:12px;margin-bottom:2px;transition:background .2s,transform .2s;font-weight:550}
+.nav button.active{background:linear-gradient(105deg,#7060ee,#4c50af);box-shadow:0 8px 22px #080c2638;color:white}
+.nav button:hover{transform:translateX(2px)}
+.main{background:#f7f8fc}.top{min-height:90px;border-color:#edeef3;padding:18px 38px}
+.top h1{font-size:24px;letter-spacing:-.8px}.eyebrow{color:#7265e9}
+.content{max-width:1350px;padding:32px 38px}
+.intro h2{font-size:27px;letter-spacing:-.85px}
+.cards{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.card,.panel{border:1px solid #ebedf4;border-radius:19px;box-shadow:0 8px 30px #26305008}
+.card{padding:22px;position:relative;overflow:hidden;min-height:165px}
+.card:after{content:"";position:absolute;right:-22px;top:-22px;width:90px;height:90px;border-radius:50%;background:#eae6ff66}
+.card-icon{width:46px;height:46px;border-radius:13px;background:#efedff;color:#6653ed;display:grid;place-items:center;font-size:22px}
+.card:nth-child(2) .card-icon{background:#e5f8f3;color:#11a58c}
+.card:nth-child(3) .card-icon{background:#fff1e5;color:#de8b35}
+.card:nth-child(4) .card-icon{background:#e8efff;color:#4a7cdb}
+.card-label{font-weight:600;margin:16px 0 7px}
+.card-value{font-size:26px;letter-spacing:-.7px}.card-note{font-size:11px}
+.panel{padding:25px;margin-top:20px}
+.panel h3{font-size:17px;letter-spacing:-.35px}
+.btn.primary{background:linear-gradient(100deg,#7866f3,#5451dd);border-color:transparent;box-shadow:0 6px 15px #675be231}
+.btn{border-radius:10px}
+.grid-2{gap:20px}
+.hero{background:linear-gradient(110deg,#282e62,#5846c7 60%,#7961eb);border-radius:22px;color:white;padding:27px 30px;position:relative;overflow:hidden;display:flex;gap:20px;justify-content:space-between;align-items:center;margin-bottom:25px;box-shadow:0 12px 30px #483ea520}
+.hero:before,.hero:after{content:"";position:absolute;border:1px solid #ffffff23;border-radius:50%;width:260px;height:260px;right:-20px;top:-125px}
+.hero:after{width:185px;height:185px;right:120px;top:60px}
+.hero>*{position:relative;z-index:1}
+.hero h2{font-size:26px;letter-spacing:-.7px;margin:8px 0}.hero p{font-size:13px;color:#e9e7ff;max-width:540px;line-height:1.7}
+.hero .btn{background:white;color:#4e45bd;border:none;padding:13px 17px}
+.hero-eyebrow{font-size:11px;letter-spacing:1.7px;font-weight:750;color:#cecaff}
+.pulse{display:inline-block;width:8px;height:8px;border-radius:50%;background:#37d2aa;margin-right:7px}
+.eyeline{display:flex;align-items:center;gap:10px;color:#8b93a4;font-size:12px;font-weight:650}
+.spark{width:100%;height:35px;margin-top:7px}
+.chart-panel{min-height:315px}
+.chart-wrap{margin-top:22px;height:184px;display:flex;align-items:end;gap:12px;border-bottom:1px solid #e7e9f0;background:repeating-linear-gradient(to top,transparent 0,transparent 45px,#e9ebf2 46px)}
+.chart-col{flex:1;background:linear-gradient(to top,#6d5be8,#aaa2fd);border-radius:7px 7px 0 0;opacity:.7;min-width:5px}
+.chart-col:nth-child(5){opacity:1}
+.chart-months{display:flex;justify-content:space-around;font-size:11px;color:#9299a9;margin-top:12px}
+.quick-actions{display:grid;gap:10px;margin-top:17px}
+.quick-action{display:flex;align-items:center;justify-content:space-between;border:1px solid #eceef5;border-radius:12px;padding:15px;color:#3f4761;background:#fbfbfe;font-size:13px;font-weight:650;cursor:pointer}
+.quick-action:hover{background:#f0edff;border-color:#d8d1ff}
+.quick-action span{color:#7a68ef}
+.section-title{font-size:17px;font-weight:800;letter-spacing:-.35px;margin:23px 0 0}
+.status-chip{display:inline-block;padding:6px 9px;border-radius:30px;background:#fff5dc;color:#967220;font-size:11px;font-weight:750}
+.preview-tag{display:inline-block;font-size:10px;letter-spacing:.6px;background:#f3efff;color:#6b56e6;padding:6px 9px;border-radius:6px;font-weight:800}
+.logo-preview{background:linear-gradient(135deg,#f3f0ff,#fff);border-color:#c5bdf9}
+.top-right{display:flex;gap:12px;align-items:center}
+.iconbtn{border:1px solid #e5e7f0;background:#fff;color:#68708c;border-radius:12px;padding:10px 12px}
+.feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:20px}
+.feature{border:1px solid #eceefa;background:#fff;border-radius:15px;padding:21px}
+.feature .ficon{width:40px;height:40px;border-radius:12px;background:#f0edff;color:#6856e6;display:grid;place-items:center;font-size:21px}
+.feature h4{font-size:14px;margin:15px 0 7px}.feature p{font-size:12px;color:#8690a5;line-height:1.6;margin:0}
+@media(max-width:1100px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.app{grid-template-columns:76px 1fr}.content{padding:24px 20px}.top{padding:18px 21px}.hero{padding:22px}}
+@media(max-width:600px){.app{grid-template-columns:60px 1fr}.cards,.grid-2,.feature-grid{grid-template-columns:1fr}.content{padding:18px 13px}.hero{display:block}.hero .btn{margin-top:12px}.hero h2{font-size:23px}.top-right .iconbtn{display:none}.panel{padding:17px}.top{padding:15px 13px}}
+</style>
 </head>
 <body>
 <div class="app">
@@ -21,6 +83,7 @@
       <button class="active" data-page="inicio"><span class="nav-icon">◫</span><span class="nav-text">Visão geral</span></button>
       <button data-page="pedidos"><span class="nav-icon">▤</span><span class="nav-text">Pedidos</span></button>
       <button data-page="lojas"><span class="nav-icon">▣</span><span class="nav-text">Estabelecimentos</span></button>
+      <button data-page="relatorios"><span class="nav-icon">◫</span><span class="nav-text">Relatórios</span></button>
       <button data-page="config"><span class="nav-icon">⚙</span><span class="nav-text">Configurações</span></button>
     </nav></div>
     <div class="side-bottom">Versão inicial demonstrativa<br>Sem conexão com servidor</div>
@@ -29,18 +92,33 @@
     <header class="top"><div><div class="eyebrow">ADMINISTRAÇÃO</div><h1 id="pageTitle">Visão geral</h1></div><div class="account"><span>Ambiente de demonstração</span><div class="avatar">ADM</div></div></header>
     <div class="content">
       <section id="page-inicio">
-        <div class="intro"><h2>Bem-vindo ao painel!</h2><p>Gerencie a identidade visual e prepare a operação da sua plataforma em um só lugar.</p></div>
-        <div class="cards">
-          <div class="card"><div class="card-icon">▤</div><div class="card-label">Pedidos integrados</div><div class="card-value">—</div><div class="card-note">Aguardando integração</div></div>
-          <div class="card"><div class="card-icon">▣</div><div class="card-label">Estabelecimentos</div><div class="card-value">—</div><div class="card-note">Aguardando integração</div></div>
-          <div class="card"><div class="card-icon">◉</div><div class="card-label">Status do sistema</div><div class="card-value" style="font-size:19px">Protótipo</div><div class="card-note">Interface administrativa inicial</div></div>
-        </div>
-        <div class="panel"><h3>Personalize sua plataforma</h3><p>Envie o logotipo, personalize o nome e escolha a cor principal da interface.</p><button class="btn primary" id="shortcutSettings">Abrir identidade visual →</button></div>
-        <div class="notice">Este painel é uma base de interface. Os indicadores ainda não representam dados reais; operações, login e persistência no servidor exigem integração com backend.</div>
-      </section>
+<div class="hero"><div><div class="hero-eyebrow"><span class="pulse"></span> DELIVALE CONTROL CENTER</div><h2>Seu marketplace, no comando.</h2><p>Uma visão organizada da operação, com identidade própria, gestão de parceiros e espaço para acompanhar o crescimento do seu negócio.</p><button type="button" class="btn" id="heroSettings">✦ Personalizar minha plataforma →</button></div><div style="font-size:71px;opacity:.85" aria-hidden="true">◈</div></div>
+<div class="intro"><h2>Visão geral <span class="preview-tag">MODO DEMONSTRAÇÃO</span></h2><p>Bem-vindo ao seu espaço de gestão. Dados reais serão exibidos após a integração com seu sistema.</p></div>
+<div class="cards">
+<div class="card"><div class="card-icon">▣</div><div class="card-label">Lojas cadastradas</div><div class="card-value">—</div><div class="card-note">Aguardando base de lojas</div></div>
+<div class="card"><div class="card-icon">▤</div><div class="card-label">Pedidos recebidos</div><div class="card-value">—</div><div class="card-note">Integração pendente</div></div>
+<div class="card"><div class="card-icon">◈</div><div class="card-label">Faturamento</div><div class="card-value">—</div><div class="card-note">Sem dados financeiros conectados</div></div>
+<div class="card"><div class="card-icon">⌁</div><div class="card-label">Clientes ativos</div><div class="card-value">—</div><div class="card-note">Aguardando integração</div></div>
+</div>
+<div class="grid-2">
+<div class="panel chart-panel"><div class="eyeline"><span>◈</span> ANÁLISE DO MARKETPLACE <span class="preview-tag">ILUSTRAÇÃO</span></div><h3 style="margin-top:12px">Desempenho da plataforma</h3><p>Visual demonstrativo do espaço reservado para as métricas reais.</p>
+<div class="chart-wrap" aria-label="Gráfico ilustrativo, não representa dados reais"><div class="chart-col" style="height:32%"></div><div class="chart-col" style="height:45%"></div><div class="chart-col" style="height:38%"></div><div class="chart-col" style="height:62%"></div><div class="chart-col" style="height:78%"></div><div class="chart-col" style="height:55%"></div><div class="chart-col" style="height:70%"></div><div class="chart-col" style="height:50%"></div><div class="chart-col" style="height:85%"></div><div class="chart-col" style="height:73%"></div><div class="chart-col" style="height:88%"></div><div class="chart-col" style="height:100%"></div></div><div class="chart-months"><span>Jan</span><span>Mar</span><span>Mai</span><span>Jul</span><span>Set</span><span>Dez</span></div></div>
+<div class="panel"><div class="eyeline">⚡ ACESSO RÁPIDO</div><h3 style="margin-top:12px">Central de gestão</h3><p>Acesse as principais áreas do marketplace.</p><div class="quick-actions">
+<button class="quick-action" data-goto="lojas">▣ Gerenciar estabelecimentos <span>→</span></button>
+<button class="quick-action" data-goto="pedidos">▤ Monitorar pedidos <span>→</span></button>
+<button class="quick-action" data-goto="config">◈ Alterar logotipo e identidade <span>→</span></button>
+<button class="quick-action" data-goto="relatorios">◫ Visualizar relatórios <span>→</span></button>
+</div></div>
+</div>
+<div class="section-title">Estrutura do seu marketplace</div><div class="feature-grid">
+<div class="feature"><div class="ficon">▣</div><h4>Gestão de parceiros</h4><p>Área preparada para reunir cadastro, status e acompanhamento das lojas.</p></div>
+<div class="feature"><div class="ficon">▤</div><h4>Pedidos e entregas</h4><p>Organização para acompanhar pedidos, etapas e entregadores após integração.</p></div>
+<div class="feature"><div class="ficon">✦</div><h4>Marca personalizada</h4><p>Escolha seu logotipo, nome e cor principal na identidade visual.</p></div></div>
+<div class="notice">Versão de interface demonstrativa: sem login, sem banco de dados, sem indicadores reais e sem integração com o servidor. Não usar como painel de produção sem segurança e backend.</div>
+</section>
       <section id="page-pedidos" class="hidden"><div class="intro"><h2>Pedidos</h2><p>Área reservada à gestão de pedidos após a integração com a API.</p></div><div class="empty"><div><strong>Sem integração de pedidos</strong><p>Os pedidos reais aparecerão aqui quando o backend estiver conectado.</p></div></div></section>
       <section id="page-lojas" class="hidden"><div class="intro"><h2>Estabelecimentos</h2><p>Área reservada à gestão de lojas e parceiros.</p></div><div class="empty"><div><strong>Nenhuma loja conectada</strong><p>Conecte o cadastro de estabelecimentos para gerenciá-los.</p></div></div></section>
-      <section id="page-config" class="hidden">
+      <section id="page-relatorios" class="hidden"><div class="intro"><h2>Relatórios e análises <span class="preview-tag">EM PREPARAÇÃO</span></h2><p>Indicadores gerenciais para conhecer o crescimento da sua operação.</p></div><div class="feature-grid"><div class="feature"><div class="ficon">◈</div><h4>Receita e comissões</h4><p>Depende da integração financeira do marketplace.</p></div><div class="feature"><div class="ficon">▤</div><h4>Pedidos e conversão</h4><p>Depende da API de pedidos e clientes.</p></div><div class="feature"><div class="ficon">▣</div><h4>Desempenho por loja</h4><p>Depende do cadastro e histórico dos parceiros.</p></div></div></section><section id="page-config" class="hidden">
         <div class="intro"><h2>Identidade visual</h2><p>Configure a apresentação e a marca do seu marketplace.</p></div>
         <div class="panel"><div class="setting-title">Logotipo da plataforma</div><p>Escolha uma imagem para aparecer no menu do painel. O arquivo é redimensionado e guardado neste navegador.</p>
           <div class="logo-zone"><div class="logo-preview" id="logoPreview"><span>Sem logotipo</span></div><div><div class="button-row"><button type="button" class="btn primary" id="chooseLogo">Enviar logotipo</button><button type="button" class="btn danger" id="removeLogo">Remover</button></div><p class="tip">PNG, JPG ou WebP • até 5 MB • recomendado: imagem quadrada</p></div></div>
@@ -78,7 +156,7 @@
     showLogo($("logoPreview"),draftLogo,"Sem logotipo");
   }
   function status(message,ok){$("saveStatus").textContent=message;$("saveStatus").className="status "+(ok?"ok":"error")}
-  const pages={inicio:"Visão geral",pedidos:"Pedidos",lojas:"Estabelecimentos",config:"Configurações"};
+  const pages={inicio:"Visão geral",pedidos:"Pedidos",lojas:"Estabelecimentos",relatorios:"Relatórios",config:"Configurações"};
   function navigate(page){
     if(!pages[page])return;
     Object.keys(pages).forEach(key=>$("page-"+key).classList.toggle("hidden",key!==page));
@@ -87,7 +165,8 @@
     if(page==="config")render();
   }
   document.querySelectorAll("#navigation button").forEach(b=>b.addEventListener("click",()=>navigate(b.dataset.page)));
-  $("shortcutSettings").addEventListener("click",()=>navigate("config"));
+  $("heroSettings").addEventListener("click",()=>navigate("config"));
+  document.querySelectorAll("[data-goto]").forEach(b=>b.addEventListener("click",()=>navigate(b.dataset.goto)));
   $("chooseLogo").addEventListener("click",()=>$("logoFile").click());
   $("logoFile").addEventListener("change",async function(){
     const file=this.files&&this.files[0];if(!file)return;
