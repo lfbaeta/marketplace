@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <title>Marketplace | Administração</title>
+  <style>
+    :root{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#172033;background:#f5f7fb;--accent:#3559e0;--accent-soft:#e9edff;--line:#e6eaf1;--muted:#778196}
+    *{box-sizing:border-box}body{margin:0}button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.5;cursor:not-allowed}
+    .app{min-height:100vh;display:grid;grid-template-columns:252px 1fr}.sidebar{background:#111a2e;color:#f8faff;padding:27px 17px;display:flex;flex-direction:column;gap:32px}.brand{display:flex;align-items:center;gap:13px;padding:0 11px}.brand-icon{width:45px;height:45px;border-radius:13px;background:#fff;display:grid;place-items:center;overflow:hidden;font-size:23px;color:var(--accent);font-weight:800}.brand-icon img{width:100%;height:100%;object-fit:contain}.brand-title{font-size:16px;font-weight:800;overflow-wrap:anywhere}.brand-sub{font-size:11px;color:#a7b3c9;margin-top:3px}.nav-label{font-size:11px;color:#8795af;letter-spacing:1.3px;font-weight:700;padding:0 14px;margin-bottom:12px}.nav{display:grid;gap:6px}.nav button{width:100%;border:0;background:transparent;color:#aebbd1;text-align:left;border-radius:10px;padding:13px 14px;display:flex;gap:13px;align-items:center;font-size:14px}.nav button.active,.nav button:hover{background:#26365b;color:#fff}.nav-icon{font-size:19px;width:22px;text-align:center}.side-bottom{margin-top:auto;font-size:12px;color:#8897af;padding:13px;line-height:1.6;border-top:1px solid #29364e}
+    .main{min-width:0}.top{min-height:88px;background:white;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:20px 37px;gap:12px}.eyebrow{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.5px}.top h1{font-size:23px;margin:4px 0 0}.account{display:flex;align-items:center;gap:11px;color:var(--muted);font-size:12px}.avatar{width:38px;height:38px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-size:15px;font-weight:800;display:grid;place-items:center}.content{max-width:1180px;padding:33px 37px;margin:0 auto}.intro h2{font-size:23px;margin:0 0 9px}.intro p{margin:0;color:var(--muted);line-height:1.6;font-size:14px}.cards{margin-top:26px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.card,.panel{background:#fff;border:1px solid var(--line);border-radius:15px;box-shadow:0 3px 15px rgba(28,40,70,.025)}.card{padding:23px}.card-icon{font-size:24px}.card-label{font-size:13px;color:var(--muted);margin:16px 0 9px}.card-value{font-size:25px;font-weight:800}.card-note{font-size:12px;color:#8790a2;margin-top:8px}.panel{padding:26px;margin-top:21px}.panel h3{margin:0 0 9px;font-size:17px}.panel p{color:var(--muted);font-size:13px;line-height:1.7}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:19px}.setting-title{font-size:15px;font-weight:800;margin-bottom:6px}.logo-zone{display:flex;gap:23px;align-items:center;flex-wrap:wrap;margin:20px 0}.logo-preview{width:145px;height:112px;background:#f7f9fc;border:1px dashed #cbd5e1;border-radius:13px;display:grid;place-items:center;overflow:hidden;color:#8e9ab1}.logo-preview img{width:100%;height:100%;object-fit:contain;padding:8px}.button-row{display:flex;flex-wrap:wrap;gap:9px}.btn{border-radius:9px;padding:11px 15px;font-weight:700;font-size:13px;border:1px solid var(--line);background:#fff;color:#34405a}.btn.primary{border-color:var(--accent);background:var(--accent);color:white}.btn.danger{color:#b83847}.btn:hover:not(:disabled){filter:brightness(.96)}.field{display:grid;gap:8px;margin:18px 0}.field label{font-size:13px;font-weight:700}.field input{border:1px solid #d8deea;border-radius:9px;padding:13px;outline:none;width:100%;color:#1d2a40}.field input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}.tip{font-size:12px!important;color:#8894a6!important}.status{min-height:18px;font-size:13px;font-weight:600;margin-top:14px}.status.ok{color:#15803d}.status.error{color:#b91c1c}.empty{display:grid;place-items:center;text-align:center;min-height:170px;background:#fafbfe;border:1px dashed #dce3ee;border-radius:12px;margin-top:19px;padding:25px;color:#778196}.empty strong{color:#384359}.hidden{display:none!important}.notice{padding:13px 16px;border-radius:10px;background:#fff8e7;border:1px solid #f4e3b3;color:#8b671a;font-size:12px;line-height:1.6;margin-top:20px}.color-input{height:44px!important;padding:4px!important;width:80px!important}
+    @media(max-width:900px){.app{grid-template-columns:76px 1fr}.sidebar{padding:22px 10px}.brand{justify-content:center;padding:0}.brand-title,.brand-sub,.nav-label,.nav-text,.side-bottom{display:none}.nav button{justify-content:center;padding:13px}.nav-icon{width:auto}.top{padding:18px 21px}.content{padding:24px 20px}.cards{grid-template-columns:1fr}.grid-2{grid-template-columns:1fr}}@media(max-width:500px){.app{grid-template-columns:60px 1fr}.sidebar{padding:15px 5px}.brand-icon{width:38px;height:38px}.top h1{font-size:18px}.account span{display:none}.content{padding:18px 13px}.panel{padding:17px}.logo-zone{gap:12px}.top{padding:15px 13px}.intro h2{font-size:20px}}
+  </style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" aria-label="Menu administrativo">
+    <div class="brand"><div class="brand-icon" id="sidebarLogo">M</div><div><div class="brand-title" id="sidebarName">Marketplace</div><div class="brand-sub">Painel administrativo</div></div></div>
+    <div><div class="nav-label">GERENCIAMENTO</div><nav class="nav" id="navigation">
+      <button class="active" data-page="inicio"><span class="nav-icon">◫</span><span class="nav-text">Visão geral</span></button>
+      <button data-page="pedidos"><span class="nav-icon">▤</span><span class="nav-text">Pedidos</span></button>
+      <button data-page="lojas"><span class="nav-icon">▣</span><span class="nav-text">Estabelecimentos</span></button>
+      <button data-page="config"><span class="nav-icon">⚙</span><span class="nav-text">Configurações</span></button>
+    </nav></div>
+    <div class="side-bottom">Versão inicial demonstrativa<br>Sem conexão com servidor</div>
+  </aside>
+  <main class="main">
+    <header class="top"><div><div class="eyebrow">ADMINISTRAÇÃO</div><h1 id="pageTitle">Visão geral</h1></div><div class="account"><span>Ambiente de demonstração</span><div class="avatar">ADM</div></div></header>
+    <div class="content">
+      <section id="page-inicio">
+        <div class="intro"><h2>Bem-vindo ao painel!</h2><p>Gerencie a identidade visual e prepare a operação da sua plataforma em um só lugar.</p></div>
+        <div class="cards">
+          <div class="card"><div class="card-icon">▤</div><div class="card-label">Pedidos integrados</div><div class="card-value">—</div><div class="card-note">Aguardando integração</div></div>
+          <div class="card"><div class="card-icon">▣</div><div class="card-label">Estabelecimentos</div><div class="card-value">—</div><div class="card-note">Aguardando integração</div></div>
+          <div class="card"><div class="card-icon">◉</div><div class="card-label">Status do sistema</div><div class="card-value" style="font-size:19px">Protótipo</div><div class="card-note">Interface administrativa inicial</div></div>
+        </div>
+        <div class="panel"><h3>Personalize sua plataforma</h3><p>Envie o logotipo, personalize o nome e escolha a cor principal da interface.</p><button class="btn primary" id="shortcutSettings">Abrir identidade visual →</button></div>
+        <div class="notice">Este painel é uma base de interface. Os indicadores ainda não representam dados reais; operações, login e persistência no servidor exigem integração com backend.</div>
+      </section>
+      <section id="page-pedidos" class="hidden"><div class="intro"><h2>Pedidos</h2><p>Área reservada à gestão de pedidos após a integração com a API.</p></div><div class="empty"><div><strong>Sem integração de pedidos</strong><p>Os pedidos reais aparecerão aqui quando o backend estiver conectado.</p></div></div></section>
+      <section id="page-lojas" class="hidden"><div class="intro"><h2>Estabelecimentos</h2><p>Área reservada à gestão de lojas e parceiros.</p></div><div class="empty"><div><strong>Nenhuma loja conectada</strong><p>Conecte o cadastro de estabelecimentos para gerenciá-los.</p></div></div></section>
+      <section id="page-config" class="hidden">
+        <div class="intro"><h2>Identidade visual</h2><p>Configure a apresentação e a marca do seu marketplace.</p></div>
+        <div class="panel"><div class="setting-title">Logotipo da plataforma</div><p>Escolha uma imagem para aparecer no menu do painel. O arquivo é redimensionado e guardado neste navegador.</p>
+          <div class="logo-zone"><div class="logo-preview" id="logoPreview"><span>Sem logotipo</span></div><div><div class="button-row"><button type="button" class="btn primary" id="chooseLogo">Enviar logotipo</button><button type="button" class="btn danger" id="removeLogo">Remover</button></div><p class="tip">PNG, JPG ou WebP • até 5 MB • recomendado: imagem quadrada</p></div></div>
+          <input id="logoFile" type="file" accept="image/png,image/jpeg,image/webp" class="hidden">
+          <div class="setting-title">Informações da plataforma</div>
+          <div class="grid-2"><div class="field"><label for="platformName">Nome da plataforma</label><input id="platformName" maxlength="45" placeholder="Marketplace"></div><div class="field"><label for="accentColor">Cor principal</label><input id="accentColor" class="color-input" type="color" value="#3559e0"></div></div>
+          <div class="button-row"><button type="button" class="btn primary" id="saveSettings">Salvar alterações</button><button type="button" class="btn" id="resetSettings">Restaurar padrões</button></div>
+          <div id="saveStatus" role="status" aria-live="polite" class="status"></div>
+        </div>
+        <div class="notice">A imagem e as configurações ficam salvas apenas neste navegador. Para sincronizar entre usuários e dispositivos, é necessário armazenamento no servidor e autenticação de administradores.</div>
+      </section>
+    </div>
+  </main>
+</div>
+<script>
+(function(){
+  "use strict";
+  const KEY="marketplace.admin.brand.v1";
+  const DEFAULT={name:"Marketplace",accent:"#3559e0",logo:null};
+  const $=id=>document.getElementById(id);
+  let settings={...DEFAULT};
+  try{const saved=JSON.parse(localStorage.getItem(KEY)||"null");if(saved&&typeof saved==="object")settings={...DEFAULT,...saved}}catch(_){}
+  let draftLogo=settings.logo;
+  function showLogo(container,logo,fallback){
+    container.replaceChildren();
+    if(logo&&typeof logo==="string"&&logo.startsWith("data:image/")){const im=document.createElement("img");im.src=logo;im.alt="Logotipo da plataforma";container.appendChild(im)}
+    else{const span=document.createElement("span");span.textContent=fallback;container.appendChild(span)}
+  }
+  function render(){
+    $("sidebarName").textContent=settings.name||DEFAULT.name;
+    showLogo($("sidebarLogo"),settings.logo,(settings.name||"M").slice(0,1).toUpperCase());
+    $("platformName").value=settings.name;
+    $("accentColor").value=/^#[0-9a-f]{6}$/i.test(settings.accent)?settings.accent:DEFAULT.accent;
+    document.documentElement.style.setProperty("--accent",$("accentColor").value);
+    showLogo($("logoPreview"),draftLogo,"Sem logotipo");
+  }
+  function status(message,ok){$("saveStatus").textContent=message;$("saveStatus").className="status "+(ok?"ok":"error")}
+  const pages={inicio:"Visão geral",pedidos:"Pedidos",lojas:"Estabelecimentos",config:"Configurações"};
+  function navigate(page){
+    if(!pages[page])return;
+    Object.keys(pages).forEach(key=>$("page-"+key).classList.toggle("hidden",key!==page));
+    document.querySelectorAll("#navigation button").forEach(button=>{const active=button.dataset.page===page;button.classList.toggle("active",active);button.setAttribute("aria-current",active?"page":"false")});
+    $("pageTitle").textContent=pages[page];
+    if(page==="config")render();
+  }
+  document.querySelectorAll("#navigation button").forEach(b=>b.addEventListener("click",()=>navigate(b.dataset.page)));
+  $("shortcutSettings").addEventListener("click",()=>navigate("config"));
+  $("chooseLogo").addEventListener("click",()=>$("logoFile").click());
+  $("logoFile").addEventListener("change",async function(){
+    const file=this.files&&this.files[0];if(!file)return;
+    if(!["image/png","image/jpeg","image/webp"].includes(file.type)){status("Use PNG, JPG ou WebP.",false);this.value="";return}
+    if(file.size>5*1024*1024){status("A imagem deve ter no máximo 5 MB.",false);this.value="";return}
+    try{
+      const url=URL.createObjectURL(file);
+      try{
+        const img=new Image();img.src=url;await img.decode();
+        const scale=Math.min(1,512/Math.max(img.naturalWidth,img.naturalHeight));
+        const canvas=document.createElement("canvas");canvas.width=Math.max(1,Math.round(img.naturalWidth*scale));canvas.height=Math.max(1,Math.round(img.naturalHeight*scale));
+        canvas.getContext("2d").drawImage(img,0,0,canvas.width,canvas.height);
+        draftLogo=canvas.toDataURL("image/png");
+        showLogo($("logoPreview"),draftLogo,"Sem logotipo");
+        status("Imagem pronta. Clique em Salvar alterações.",true);
+      }finally{URL.revokeObjectURL(url)}
+    }catch(_){status("Não foi possível ler esta imagem.",false)}
+    this.value="";
+  });
+  $("removeLogo").addEventListener("click",()=>{draftLogo=null;showLogo($("logoPreview"),null,"Sem logotipo");status("Logotipo removido da prévia. Salve para confirmar.",true)});
+  $("saveSettings").addEventListener("click",()=>{
+    const name=$("platformName").value.trim();
+    if(!name){status("Informe o nome da plataforma.",false);return}
+    const next={name,accent:$("accentColor").value,logo:draftLogo};
+    try{localStorage.setItem(KEY,JSON.stringify(next));settings=next;render();status("Configurações salvas neste navegador.",true)}
+    catch(_){status("Não foi possível salvar. Verifique o espaço de armazenamento do navegador.",false)}
+  });
+  $("resetSettings").addEventListener("click",()=>{draftLogo=null;$("platformName").value=DEFAULT.name;$("accentColor").value=DEFAULT.accent;showLogo($("logoPreview"),null,"Sem logotipo");status("Padrões carregados. Salve para confirmar.",true)});
+  render();
+})();
+</script>
+</body>
+</html>
